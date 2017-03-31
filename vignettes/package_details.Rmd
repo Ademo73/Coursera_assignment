@@ -1,0 +1,47 @@
+---
+title: "package_details"
+author: "Adam Mogensen"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{package_details}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Package Info
+
+The functions in this package is created to be used on data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System, which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.
+
+The following functions are available in this package:
+
+- fars_read
+- make_filename
+- fars_read_years
+- fars_summarize_years
+- fars_map_state
+
+## Documentation
+
+Further documentation on each function mentioned in the above paragraph is included in the package in roxygen2 format.
+
+## Included data
+
+This package includes 2013 data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System.
+The data is located in the '\\data' folder.
+
+## Tests
+
+Tests are included in the package and located in the '\\tests' folder. The test file is called 'test1'.
+
+## Example
+
+Here is an example of the use of the 'fars_map_state' that maps the data points from the data (here the included 2013 data)
+over the state given by the user.
+
+```{r, fig.show='hold'}
+library(FarsPackage)
+library(maps)
+fars_map_state(12, 2013)
+```
+
