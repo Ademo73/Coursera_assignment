@@ -34,14 +34,4 @@ The data is located in the '\\data' folder.
 
 Tests are included in the package and located in the '\\tests' folder. The test file is called 'test1'.
 
-## Example
-
-Here is an example of the use of the 'fars_map_state' that maps the data points from the data (here the included 2013 data)
-over the state given by the user.
-
-```{r, fig.show='hold'}
-library(FarsPackage)
-library(maps)
-fars_map_state(12, 2013)
-```
 
