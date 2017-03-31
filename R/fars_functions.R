@@ -7,10 +7,11 @@
 #' @param filename A string with the filename of the file to be read.
 #'
 #' @return This function returns a dataframe with the data read from the file.
+#' @importFrom readr read_csv
+#' @importFrom dplyr tbl_df
 #'
 #' @examples
 #' fars_read("accident_2013.csv.bz2")
-#' fars_read("accident_2014.csv.bz2")
 #' @export
 fars_read <- function(filename) {
         if(!file.exists(filename))
@@ -35,7 +36,6 @@ fars_read <- function(filename) {
 #'
 #' @examples
 #' make_filename(2013)
-#' make_filename(2014)
 #' @export
 make_filename <- function(year) {
         year <- as.integer(year)
@@ -57,6 +57,7 @@ make_filename <- function(year) {
 #'
 #' @return This function returns a list with the month and year columns from the file
 #' @importFrom magrittr "%>%"
+#' @importFrom dplyr mutate select
 #'
 #' @examples
 #' fars_read_years(2014)
@@ -86,6 +87,8 @@ fars_read_years <- function(years) {
 #'
 #' @return This function returns a list of the summarized data for one or more years
 #' @importFrom magrittr "%>%"
+#' @importFrom dplyr bind_rows group_by summarize
+#' @importFrom tidyr spread
 #'
 #' @examples
 #' fars_summarize_years(2013)
@@ -116,8 +119,8 @@ fars_summarize_years <- function(years) {
 #' @importFrom magrittr "%>%"
 #'
 #' @examples
-#' fars_map_state(10, 2014)
-#' fars_map_state(43, 2013)
+#' fars_map_state(10, 2013)
+#' fars_map_state(13, 2013)
 #' @export
 fars_map_state <- function(state, year) {
 

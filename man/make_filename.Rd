@@ -21,6 +21,5 @@ The user input needs to be an integer otherwise the function will result in an e
 }
 \examples{
 make_filename(2013)
-make_filename(2014)
 }
 

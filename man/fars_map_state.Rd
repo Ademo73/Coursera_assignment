@@ -32,7 +32,7 @@ The function will result in an error if either the state number is not given as 
 or an incorrect state number is given (using the \code{state})
 }
 \examples{
-fars_map_state(10, 2014)
-fars_map_state(43, 2013)
+fars_map_state(10, 2013)
+fars_map_state(13, 2013)
 }
 

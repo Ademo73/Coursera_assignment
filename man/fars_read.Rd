@@ -19,6 +19,5 @@ The function tbl_df() from dplyr is used.
 }
 \examples{
 fars_read("accident_2013.csv.bz2")
-fars_read("accident_2014.csv.bz2")
 }
 
