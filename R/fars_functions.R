@@ -85,6 +85,7 @@ fars_read_years <- function(years) {
 #'
 #' @return This function returns a list of the summarized data for one or more years
 #'
+#'
 #' @examples
 #' fars_summarize_years(2013)
 #' fars_summarize_years(c(2013,2014))
@@ -112,12 +113,16 @@ fars_summarize_years <- function(years) {
 #'
 #' @return This function returns a map of the given state and the datapoints for that state.
 #'
+#'
 #' @examples
 #' fars_map_state(10, 2014)
 #' fars_map_state(43, 2013)
 #' @export
 fars_map_state <- function(state, year) {
-        filename <- make_filename(year)
+
+  library(tidyr)
+  library(dplyr)
+  filename <- make_filename(year)
         data <- fars_read(filename)
         state <- as.integer(state)
 
