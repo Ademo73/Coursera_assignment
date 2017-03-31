@@ -99,15 +99,15 @@ fars_summarize_years <- function(years) {
 
 
 #' Map the data points on a map over the selected state
-#' This function maps the state given by the user (using the \code {state.num}) and the datapoints
-#' for the year given by the user (using the \code {year}).
+#' This function maps the state given by the user (using the \code{state}) and the datapoints
+#' for the year given by the user (using the \code{year}).
 #' The function uses the map and points functions from the packages map and graphics, respectively.
 #' The function uses the function make_filename to create a string of the filename and parses this
 #' string to the fars_read function in order to read the data from the file.
 #' The function will result in an error if either the state number is not given as an integer
-#' or an incorrect state number is given (using the \code{state.num})
+#' or an incorrect state number is given (using the \code{state})
 #'
-#' @param state.num Integer specifying for what state data is to be displayed
+#' @param state Integer specifying for what state data is to be displayed
 #' @param year An integer specifying for what year data is to be displayed
 #'
 #' @return This function returns a map of the given state and the datapoints for that state.
@@ -116,14 +116,14 @@ fars_summarize_years <- function(years) {
 #' fars_map_state(10, 2014)
 #' fars_map_state(43, 2013)
 #' @export
-fars_map_state <- function(state.num, year) {
+fars_map_state <- function(state, year) {
         filename <- make_filename(year)
         data <- fars_read(filename)
-        state.num <- as.integer(state.num)
+        state <- as.integer(state)
 
         if(!(state.num %in% unique(data$STATE)))
-                stop("invalid STATE number: ", state.num)
-        data.sub <- dplyr::filter(data, STATE == state.num)
+                stop("invalid STATE number: ", state)
+        data.sub <- dplyr::filter(data, STATE == state)
         if(nrow(data.sub) == 0L) {
                 message("no accidents to plot")
                 return(invisible(NULL))

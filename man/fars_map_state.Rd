@@ -3,18 +3,18 @@
 \name{fars_map_state}
 \alias{fars_map_state}
 \title{Map the data points on a map over the selected state
-This function maps the state given by the user (using the \code {state.num}) and the datapoints
-for the year given by the user (using the \code {year}).
+This function maps the state given by the user (using the \code{state}) and the datapoints
+for the year given by the user (using the \code{year}).
 The function uses the map and points functions from the packages map and graphics, respectively.
 The function uses the function make_filename to create a string of the filename and parses this
 string to the fars_read function in order to read the data from the file.
 The function will result in an error if either the state number is not given as an integer
-or an incorrect state number is given (using the \code{state.num})}
+or an incorrect state number is given (using the \code{state})}
 \usage{
-fars_map_state(state.num, year)
+fars_map_state(state, year)
 }
 \arguments{
-\item{state.num}{Integer specifying for what state data is to be displayed}
+\item{state}{Integer specifying for what state data is to be displayed}
 
 \item{year}{An integer specifying for what year data is to be displayed}
 }
@@ -23,13 +23,13 @@ This function returns a map of the given state and the datapoints for that state
 }
 \description{
 Map the data points on a map over the selected state
-This function maps the state given by the user (using the \code {state.num}) and the datapoints
-for the year given by the user (using the \code {year}).
+This function maps the state given by the user (using the \code{state}) and the datapoints
+for the year given by the user (using the \code{year}).
 The function uses the map and points functions from the packages map and graphics, respectively.
 The function uses the function make_filename to create a string of the filename and parses this
 string to the fars_read function in order to read the data from the file.
 The function will result in an error if either the state number is not given as an integer
-or an incorrect state number is given (using the \code{state.num})
+or an incorrect state number is given (using the \code{state})
 }
 \examples{
 fars_map_state(10, 2014)

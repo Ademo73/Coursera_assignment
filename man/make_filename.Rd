@@ -13,8 +13,8 @@ make_filename(year)
 This function returns a string with the filename customized with given year
 }
 \description{
-This function creates a custom filename string from the combination of year given by the user (using \code{year}) and 
-the default part of the filename of the file with data from the 
+This function creates a custom filename string from the combination of year given by the user (using \code{year}) and
+the default part of the filename of the file with data from the
 US National Highway Traffic Safety Administration's Fatality Analysis Reporting System.
 This string can then be used to read data from the file with data from the given year.
 The user input needs to be an integer otherwise the function will result in an error.
