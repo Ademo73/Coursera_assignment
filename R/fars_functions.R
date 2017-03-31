@@ -1,13 +1,13 @@
 
 #' Read data from file into a dataframe.
-#' 
+#'
 #' This function reads data from a file given specified by the user and puts it in a dataframe.
 #' If wrong filename is given then it will result in an error.
 #' The function tbl_df() from dplyr is used.
 #' @param filename A string with the filename of the file to be read.
 #'
 #' @return This function returns a dataframe with the data read from the file.
-#' 
+#'
 #' @examples
 #' fars_read("accident_2013.csv.bz2")
 #' fars_read("accident_2014.csv.bz2")
@@ -24,15 +24,15 @@ fars_read <- function(filename) {
 
 #'Create custom filename
 #'
-#' This function creates a custom filename string from the combination of year given by the user (using \code{year}) and 
-#' the default part of the filename of the file with data from the 
+#' This function creates a custom filename string from the combination of year given by the user (using \code{year}) and
+#' the default part of the filename of the file with data from the
 #' US National Highway Traffic Safety Administration's Fatality Analysis Reporting System.
 #' This string can then be used to read data from the file with data from the given year.
 #' The user input needs to be an integer otherwise the function will result in an error.
 #' @param year An integer respresenting the year to be used in the filename string
-#' 
+#'
 #' @return This function returns a string with the filename customized with given year
-#' 
+#'
 #' @examples
 #' make_filename(2013)
 #' make_filename(2014)
@@ -44,7 +44,7 @@ make_filename <- function(year) {
 
 
 #' Read data from one or several years and select the month and year columns.
-#' 
+#'
 #' This function uses the fars_read function to read in data from a file with
 #' filename defined by using the input (year) from the user and the function make_filename.
 #' The function then uses lapply to go through each year given by the user.
@@ -56,7 +56,7 @@ make_filename <- function(year) {
 #' @param years A vector of integers that will be used by the function
 #'
 #' @return This function returns a list with the month and year columns from the file
-#' 
+#'
 #' @examples
 #' fars_read_years(2014)
 #' fars_read_years(c(2013,2014))
@@ -66,7 +66,7 @@ fars_read_years <- function(years) {
                 file <- make_filename(year)
                 tryCatch({
                         dat <- fars_read(file)
-                        dplyr::mutate(dat, year = YEAR) %>% 
+                        dplyr::mutate(dat, year = YEAR) %>%
                                 dplyr::select(MONTH, year)
                 }, error = function(e) {
                         warning("invalid year: ", year)
@@ -77,22 +77,22 @@ fars_read_years <- function(years) {
 
 
 #'Summarize the data selected by the fars_read_years function
-#' This function uses the functions, group_by, summarize and spread functions from the 
+#' This function uses the functions, group_by, summarize and spread functions from the
 #' dplyr and tidyr packages to summarize the data from using the fars_read_years function.
 #' The input can be one or more years (using the \code{years}).
-#' 
+#'
 #' @param years A vector of integers specifying the years that summarized data is wanted
 #'
 #' @return This function returns a list of the summarized data for one or more years
-#' 
+#'
 #' @examples
 #' fars_summarize_years(2013)
 #' fars_summarize_years(c(2013,2014))
 #' @export
 fars_summarize_years <- function(years) {
         dat_list <- fars_read_years(years)
-        dplyr::bind_rows(dat_list) %>% 
-                dplyr::group_by(year, MONTH) %>% 
+        dplyr::bind_rows(dat_list) %>%
+                dplyr::group_by(year, MONTH) %>%
                 dplyr::summarize(n = n()) %>%
                 tidyr::spread(year, n)
 }
@@ -111,7 +111,7 @@ fars_summarize_years <- function(years) {
 #' @param year An integer specifying for what year data is to be displayed
 #'
 #' @return This function returns a map of the given state and the datapoints for that state.
-#' 
+#'
 #' @examples
 #' fars_map_state(10, 2014)
 #' fars_map_state(43, 2013)
