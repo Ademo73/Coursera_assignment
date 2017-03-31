@@ -56,6 +56,7 @@ make_filename <- function(year) {
 #' @param years A vector of integers that will be used by the function
 #'
 #' @return This function returns a list with the month and year columns from the file
+#' @importFrom magrittr "%>%"
 #'
 #' @examples
 #' fars_read_years(2014)
@@ -84,7 +85,7 @@ fars_read_years <- function(years) {
 #' @param years A vector of integers specifying the years that summarized data is wanted
 #'
 #' @return This function returns a list of the summarized data for one or more years
-#'
+#' @importFrom magrittr "%>%"
 #'
 #' @examples
 #' fars_summarize_years(2013)
@@ -112,7 +113,7 @@ fars_summarize_years <- function(years) {
 #' @param year An integer specifying for what year data is to be displayed
 #'
 #' @return This function returns a map of the given state and the datapoints for that state.
-#'
+#' @importFrom magrittr "%>%"
 #'
 #' @examples
 #' fars_map_state(10, 2014)
@@ -120,8 +121,6 @@ fars_summarize_years <- function(years) {
 #' @export
 fars_map_state <- function(state, year) {
 
-  library(tidyr)
-  library(dplyr)
   filename <- make_filename(year)
         data <- fars_read(filename)
         state <- as.integer(state)
