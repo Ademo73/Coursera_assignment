@@ -63,6 +63,7 @@ make_filename <- function(year) {
 fars_read_years <- function(years) {
      Month <- NULL
      YEAR <- NULL
+     MONTH <- NULL
   lapply(years, function(year) {
                 file <- make_filename(year)
                 tryCatch({
