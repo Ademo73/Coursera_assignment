@@ -58,9 +58,12 @@ make_filename <- function(year) {
 #' @importFrom dplyr mutate select
 #'
 #'
+#'
 #' @export
 fars_read_years <- function(years) {
-        lapply(years, function(year) {
+     Month <- NULL
+     YEAR <- NULL
+  lapply(years, function(year) {
                 file <- make_filename(year)
                 tryCatch({
                         dat <- fars_read(file)
@@ -89,7 +92,10 @@ fars_read_years <- function(years) {
 #'
 #' @export
 fars_summarize_years <- function(years) {
-        dat_list <- fars_read_years(years)
+        MONTH <- NULL
+        n <- NULL
+        year <- NULL
+  dat_list <- fars_read_years(years)
         dplyr::bind_rows(dat_list) %>%
                 dplyr::group_by(year, MONTH) %>%
                 dplyr::summarize(n = n()) %>%
@@ -111,10 +117,12 @@ fars_summarize_years <- function(years) {
 #'
 #' @return This function returns a map of the given state and the datapoints for that state.
 #' @importFrom magrittr "%>%"
+#' @importFrom maps map
+#' @importFrom graphics points
 #'
 #' @export
 fars_map_state <- function(state, year) {
-
+ STATE <- NULL
   filename <- make_filename(year)
         data <- fars_read(filename)
         state <- as.integer(state)
