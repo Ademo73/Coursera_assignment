@@ -118,9 +118,6 @@ fars_summarize_years <- function(years) {
 #' @return This function returns a map of the given state and the datapoints for that state.
 #' @importFrom magrittr "%>%"
 #'
-#' @examples
-#' fars_map_state(10, 2013)
-#' fars_map_state(13, 2013)
 #' @export
 fars_map_state <- function(state, year) {
 
