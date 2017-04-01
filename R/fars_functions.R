@@ -10,8 +10,6 @@
 #' @importFrom readr read_csv
 #' @importFrom dplyr tbl_df
 #'
-#' @examples
-#' fars_read("data/accident_2013.csv.bz2")
 #' @export
 fars_read <- function(filename) {
         if(!file.exists(filename))
@@ -59,8 +57,6 @@ make_filename <- function(year) {
 #' @importFrom magrittr "%>%"
 #' @importFrom dplyr mutate select
 #'
-#' @examples
-#' fars_read_years(2013)
 #'
 #' @export
 fars_read_years <- function(years) {
@@ -90,8 +86,6 @@ fars_read_years <- function(years) {
 #' @importFrom dplyr bind_rows group_by summarize
 #' @importFrom tidyr spread
 #'
-#' @examples
-#' fars_summarize_years(2013)
 #'
 #' @export
 fars_summarize_years <- function(years) {

@@ -23,8 +23,4 @@ The package dplyr needs to be loaded first.
 If user input is not an integet and more specifically a year for which data exists
 the function will raise an error.
 }
-\examples{
-fars_read_years(2013)
-
-}
 

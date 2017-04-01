@@ -17,7 +17,4 @@ This function reads data from a file given specified by the user and puts it in 
 If wrong filename is given then it will result in an error.
 The function tbl_df() from dplyr is used.
 }
-\examples{
-fars_read("data/accident_2013.csv.bz2")
-}
 

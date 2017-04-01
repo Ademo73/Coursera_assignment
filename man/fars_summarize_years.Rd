@@ -21,8 +21,4 @@ This function uses the functions, group_by, summarize and spread functions from 
 dplyr and tidyr packages to summarize the data from using the fars_read_years function.
 The input can be one or more years (using the \code{years}).
 }
-\examples{
-fars_summarize_years(2013)
-
-}
 
