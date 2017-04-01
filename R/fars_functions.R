@@ -125,7 +125,7 @@ fars_map_state <- function(state, year) {
         data <- fars_read(filename)
         state <- as.integer(state)
 
-        if(!(state.num %in% unique(data$STATE)))
+        if(!(state %in% unique(data$STATE)))
                 stop("invalid STATE number: ", state)
         data.sub <- dplyr::filter(data, STATE == state)
         if(nrow(data.sub) == 0L) {

@@ -24,7 +24,7 @@ If user input is not an integet and more specifically a year for which data exis
 the function will raise an error.
 }
 \examples{
-fars_read_years(2014)
-fars_read_years(c(2013,2014))
+fars_read_years(2013)
+
 }
 

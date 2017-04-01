@@ -23,6 +23,6 @@ The input can be one or more years (using the \code{years}).
 }
 \examples{
 fars_summarize_years(2013)
-fars_summarize_years(c(2013,2014))
+
 }
 

@@ -18,6 +18,6 @@ If wrong filename is given then it will result in an error.
 The function tbl_df() from dplyr is used.
 }
 \examples{
-fars_read("accident_2013.csv.bz2")
+fars_read("data/accident_2013.csv.bz2")
 }
 
